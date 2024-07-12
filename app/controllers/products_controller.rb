@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
+
   def index
     @products = Product.all
   end
@@ -43,7 +45,8 @@ class ProductsController < ApplicationController
   end
 
   private
-   def article_params
-    params.require(:product).permit(:title, :description)
-   end
+
+  def article_params
+    params.require(:product).permit(:title, :description, :status)
+  end
 end
