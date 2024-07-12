@@ -1,5 +1,5 @@
-<h1><%= @product.title %></h1>
-<p><%= @product.description %></p>
+<h1>Product name: <%= @product.title %></h1>
+<p><strong>Description:</strong> <%= @product.description %></p>
 
 <ul>
     <li>
@@ -15,3 +15,5 @@
 
 <h2>Add a comment:</h2>
 <%= render "comments/form" %>
+
+<%= link_to "Go back", root_path %>
