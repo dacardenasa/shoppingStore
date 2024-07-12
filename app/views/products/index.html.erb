@@ -1,11 +1,15 @@
-<h1>Shopping Store</h1>
+<h1>Products</h1>
+
+Our store has <%= Product.public_count %> products and counting!
 
 <ul>
     <% @products.each do |product| %>
-        <li>
-            <%= link_to product.title, product  %>
-        </li>
+        <% unless product.archived? %>
+            <li>
+                <%= link_to product.title, product %>
+            </li>
+        <% end %>
     <% end %>
 </ul>
 
-<%= link_to "Create product", new_product_path %>
+<%= link_to "New product", new_product_path %>
